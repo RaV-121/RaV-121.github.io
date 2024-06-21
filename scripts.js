@@ -39,6 +39,22 @@
         setInterval(()=> percentage.forEach(addText),1000)
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('userForm');
+        const emailInput = document.getElementById('name');
+        const contentInput = document.getElementById('content');
+    
+        // Save form data to Local Storage
+        function saveFormData(event) {
+            event.preventDefault();
+            localStorage.setItem('name', emailInput.value);
+            localStorage.setItem('content', contentInput.value);
+            alert('Wiadomość wysłana pomyślnie! (załadowano do localStorage)');
+            form.reset()
+        }
+    
+        form.addEventListener('submit', saveFormData);
+    });
     
     typewriting(div,description);
     
